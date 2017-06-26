@@ -10,5 +10,7 @@
   <%= @user.bio %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+<% if current_user = User.find(params[:id]) %>
+  <%= link_to 'Edit', edit_user_path %>
+<% end %>
