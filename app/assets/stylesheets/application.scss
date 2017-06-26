@@ -13,5 +13,73 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+// links
+a:hover {
+    background: transparent;
+}
 
- @import "bootstrap";
+// padding and spacing
+.pad-5 {
+    padding: 0.5rem;
+}
+
+.pad-10 {
+    padding: 1rem;
+}
+
+.pad-15 {
+    padding: 1.5rem;
+}
+
+.pad-20 {
+    padding: 2rem;
+}
+
+.pad-25 {
+    padding: 2.5rem;
+}
+
+.pad-5-0 {
+    padding: 0.5rem 0;
+}
+
+.pad-10-0 {
+    padding: 1rem 0;
+}
+
+.pad-15-0 {
+    padding: 1.5rem 0;
+}
+
+.pad-20-0 {
+    padding: 2rem 0;
+}
+
+.empty-space,
+.half-space,
+.space {
+    display: block;
+    width: 100%;
+    height: 0;
+}
+
+.half-space {
+    height: 2rem;
+}
+
+.space {
+    height: 4rem;
+}
+
+.line,
+.divider {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.divider {
+    margin: 1rem 0rem;
+}

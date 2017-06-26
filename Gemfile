@@ -13,9 +13,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-# gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.2'
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 
 group :development do
