@@ -14,7 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.2'
-gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 
 group :development do

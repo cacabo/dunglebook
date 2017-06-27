@@ -14,13 +14,13 @@
       <p>Hi there and welcome! Sign up and get started.</p>
     <% end %>
 
+    <%= link_to 'View all users', users_path %><br>
     <% if !current_user %>
       <%= link_to 'Sign up', new_user_registration_path %>
       <%= link_to 'Sign in', new_user_session_path %>
     <% else %>
       <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
     <% end %>
-    <%= link_to 'View all users', users_path %>
     </div>
     <!-- closing col -->
   </div>

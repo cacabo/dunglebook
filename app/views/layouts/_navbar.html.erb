@@ -1,0 +1,44 @@
+<nav class="navbar navbar-toggleable-md navbar-light">
+    <!-- button to toggle navigation on small screens -->
+    <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- branding -->
+    <a class="navbar-brand" href="#">&#x1F4A9; Dunglebook</a>
+
+    <!-- navigation links -->
+    <div class="collapse navbar-collapse" id="nav">
+        <!-- left justified links -->
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'All users', users_path, class: 'nav-link' %>
+            </li>
+        </ul>
+        <!-- right justified links -->
+        <ul class="navbar-nav">
+            <% if !current_user %>
+              <li class="nav-item">
+                  <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                  <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to current_user, class: 'nav-link' do %>
+                    <%= current_user.name.present? ? current_user.name : 'Your account' %>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                 <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              </li>
+            <% end %>
+        </ul>
+    </div>
+    <!-- closing links -->
+</nav>
+<!-- closing navbar -->
