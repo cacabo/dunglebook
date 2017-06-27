@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  description: MyString
+  performance: 1
+  ambience: 1
+  scent: 1
+  cleanliness: 1
+  traffic: 1
+
+two:
+  user: two
+  description: MyString
+  performance: 1
+  ambience: 1
+  scent: 1
+  cleanliness: 1
+  traffic: 1

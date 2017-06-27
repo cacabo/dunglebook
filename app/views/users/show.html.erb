@@ -11,6 +11,6 @@
 </p>
 
 <%= link_to 'Back', users_path %>
-<% if current_user = User.find(params[:id]) %>
+<% if current_user === @user %>
   <%= link_to 'Edit', edit_user_path %>
 <% end %>

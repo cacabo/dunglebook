@@ -1,0 +1,47 @@
+<%= form_for([@user, @user.dungles.new], remote: true) do |form| %>
+  <% if dungle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dungle.errors.count, "error") %> prohibited this dungle from being saved:</h2>
+
+      <ul>
+      <% dungle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :dungle_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :performance %>
+    <%= form.number_field :performance, id: :dungle_performance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ambience %>
+    <%= form.number_field :ambience, id: :dungle_ambience %>
+  </div>
+
+  <div class="field">
+    <%= form.label :scent %>
+    <%= form.number_field :scent, id: :dungle_scent %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cleanliness %>
+    <%= form.number_field :cleanliness, id: :dungle_cleanliness %>
+  </div>
+
+  <div class="field">
+    <%= form.label :traffic %>
+    <%= form.number_field :traffic, id: :dungle_traffic %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

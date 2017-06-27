@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @dungle.user %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @dungle.description %>
+</p>
+
+<p>
+  <strong>Performance:</strong>
+  <%= @dungle.performance %>
+</p>
+
+<p>
+  <strong>Ambience:</strong>
+  <%= @dungle.ambience %>
+</p>
+
+<p>
+  <strong>Scent:</strong>
+  <%= @dungle.scent %>
+</p>
+
+<p>
+  <strong>Cleanliness:</strong>
+  <%= @dungle.cleanliness %>
+</p>
+
+<p>
+  <strong>Traffic:</strong>
+  <%= @dungle.traffic %>
+</p>
+
+<%= link_to 'Edit', edit_dungle_path(@dungle) %> |
+<%= link_to 'Back to home', root_path %>
