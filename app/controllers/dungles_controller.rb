@@ -1,7 +1,7 @@
 class DunglesController < ApplicationController
   before_action :set_dungle, only: [:show, :edit, :update, :destroy]
   before_action :set_user
-  before_action :authorize_user, only: [:edit, :update, :destroy]
+  before_action :authorize_user, only: [:new, :edit, :update, :destroy]
 
   # GET /dungles
   # GET /dungles.json

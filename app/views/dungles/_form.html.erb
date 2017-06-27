@@ -19,6 +19,9 @@
   <div class="field">
     <%= form.label :performance %>
     <%= form.number_field :performance, id: :dungle_performance %>
+    <div id="performanceRating">
+      <i class="fa fa-star" alt="1"></i><i class="fa fa-star" alt="2"></i><i class="fa fa-star" alt="3"></i><i class="fa fa-star" alt="4"></i><i class="fa fa-star" alt="5"></i>
+    </div>
   </div>
 
   <div class="field">
@@ -45,3 +48,10 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $('#performanceRating .fa').click(function() {
+    $('#dungle_performance').val($(this).attr('alt'));
+    $(this).addClass('selected');
+  });
+</script>
