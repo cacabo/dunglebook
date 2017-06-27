@@ -8,9 +8,9 @@ class Dungle < ApplicationRecord
   validates :cleanliness, presence: true
   validates :traffic, presence: true
 
-  validates_inclusion_of :performance, :in => 0..5
-  validates_inclusion_of :ambience, :in => 0..5
-  validates_inclusion_of :scent, :in => 0..5
-  validates_inclusion_of :cleanliness, :in => 0..5
-  validates_inclusion_of :traffic, :in => 0..5
+  validates_inclusion_of :performance, :in => 1..5
+  validates_inclusion_of :ambience, :in => 1..5
+  validates_inclusion_of :scent, :in => 1..5
+  validates_inclusion_of :cleanliness, :in => 1..5
+  validates_inclusion_of :traffic, :in => 1..5
 end

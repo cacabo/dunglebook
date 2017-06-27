@@ -3,6 +3,13 @@ nav.navbar {
     border-bottom: 1px solid rgba(0, 0, 0, 0.075);
 }
 
+button.navbar-toggler {
+  cursor: hand;
+  cursor: pointer;
+  outline: 0 !important;
+  border: 0px solid transparent;
+}
+
 footer {
     border-top: 1px solid rgba(0, 0, 0, 0.075);
     background: rgba(0, 15, 50, 0.05);
