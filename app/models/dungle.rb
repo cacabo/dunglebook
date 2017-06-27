@@ -1,6 +1,5 @@
 class Dungle < ApplicationRecord
   belongs_to :user
-  has_one :location, dependent: :destroy
 
   validates :user_id, presence: true
   validates :performance, presence: true

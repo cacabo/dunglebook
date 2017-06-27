@@ -44,13 +44,7 @@
                 <%= @dungle.traffic %>
             </p>
 
-            <div class="map">
-              <% if @dungle.location.present? %>
-                <div id="map"></div>
-              <% else %>
-                <a href='#'>Add dungle location.</a>
-              <% end %>
-            </div>
+            <div id="map"></div>
 
             <% if current_user and current_user === @dungle.user %>
             <%= link_to 'Edit', edit_user_dungle_path(id: @dungle.id) %><br>
@@ -62,7 +56,24 @@
         </div>
     </div>
 
-    <% if @dungle.location.present? %>
+    <div class="modal fade" id="modal">
+      <div class="modal-dialog" role="form" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              This is the modal title
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            This is the modal body
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
         function initMap() {
             var position = {
@@ -77,6 +88,5 @@
         }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKA-2kym8TeAHSh6lNFnyA4SG1AuJ46G8&callback=initMap"></script>
-    <% end %>
 
     <!-- Maps API Key: AIzaSyDKA-2kym8TeAHSh6lNFnyA4SG1AuJ46G8 -->
