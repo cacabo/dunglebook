@@ -1,6 +1,16 @@
-<h1>Editing Dungle</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3 pad-20-0">
+
+<h2>Editing Dungle</h2>
+<div class="divider"></div>
 
 <%= render 'form', dungle: @dungle %>
 
-<%= link_to 'Show', @dungle %> |
+<%= link_to 'Show', user_dungle_path(id: @dungle.id) %><br>
 <%= link_to 'Back to home', root_path %>
+
+
+</div>
+</div>
+</div>

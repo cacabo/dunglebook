@@ -1,39 +1,55 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @dungle.user %>
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3 pad-20-0">
 
-<p>
-  <strong>Description:</strong>
-  <%= @dungle.description %>
-</p>
+            <p>
+                <strong>User:</strong>
+                <%= @dungle.user.name %>
+            </p>
 
-<p>
-  <strong>Performance:</strong>
-  <%= @dungle.performance %>
-</p>
+            <p>
+                <strong>Title</strong>
+                <%= @dungle.title %>
+            </p>
 
-<p>
-  <strong>Ambience:</strong>
-  <%= @dungle.ambience %>
-</p>
+            <p>
+                <strong>Description:</strong>
+                <%= @dungle.description %>
+            </p>
 
-<p>
-  <strong>Scent:</strong>
-  <%= @dungle.scent %>
-</p>
+            <p>
+                <strong>Performance:</strong>
+                <%= @dungle.performance %>
+            </p>
 
-<p>
-  <strong>Cleanliness:</strong>
-  <%= @dungle.cleanliness %>
-</p>
+            <p>
+                <strong>Ambience:</strong>
+                <%= @dungle.ambience %>
+            </p>
 
-<p>
-  <strong>Traffic:</strong>
-  <%= @dungle.traffic %>
-</p>
+            <p>
+                <strong>Scent:</strong>
+                <%= @dungle.scent %>
+            </p>
 
-<%= link_to 'Edit', edit_dungle_path(@dungle) %> |
-<%= link_to 'Back to home', root_path %>
+            <p>
+                <strong>Cleanliness:</strong>
+                <%= @dungle.cleanliness %>
+            </p>
+
+            <p>
+                <strong>Traffic:</strong>
+                <%= @dungle.traffic %>
+            </p>
+
+            <% if current_user and current_user === @dungle.user %>
+            <%= link_to 'Edit', edit_user_dungle_path(id: @dungle.id) %><br>
+            <%= link_to 'Delete Dungle', user_dungle_path(id: @dungle.id), method: :delete %><br>
+            <% end %>
+            <%= link_to 'Back to home', root_path %>
+
+        </div>
+    </div>
+</div>

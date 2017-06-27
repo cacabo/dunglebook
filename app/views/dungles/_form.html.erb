@@ -1,10 +1,10 @@
 <%= form_for([@user, @user.dungles.new], remote: true) do |form| %>
-  <% if dungle.errors.any? %>
+  <% if @dungle.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(dungle.errors.count, "error") %> prohibited this dungle from being saved:</h2>
+      <h2><%= pluralize(@dungle.errors.count, "error") %> prohibited this dungle from being saved:</h2>
 
       <ul>
-      <% dungle.errors.full_messages.each do |message| %>
+      <% @dungle.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,69 +12,97 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :dungle_title, class: 'form-control', required: 'true' %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :dungle_description, class: 'form-control' %>
+    <%= form.text_area :description, id: :dungle_description, class: 'form-control', required: 'true'  %>
   </div>
 
-  <div class="field">
-    <%= form.label :ambience %>
-    <%= form.hidden_field :ambience, id: :dungle_ambience %>
-    <div class="rating" id="ambienceRating">
-      <h4>
-        <i class="fa fa-star" alt="1" for="dungle_ambience"></i>
-        <i class="fa fa-star" alt="2" for="dungle_ambience"></i>
-        <i class="fa fa-star" alt="3" for="dungle_ambience"></i>
-        <i class="fa fa-star" alt="4" for="dungle_ambience"></i>
-        <i class="fa fa-star" alt="5" for="dungle_ambience"></i>
-      </h4>
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <div class="field">
+        <%= form.label :ambience %>
+        <p class="text-muted">Was your experience visually stimulating?</p>
+        <%= form.number_field :ambience, id: :dungle_ambience %>
+        <div class="rating" id="ambienceRating">
+          <h4>
+            <i class="fa fa-star" alt="1" for="dungle_ambience"></i>
+            <i class="fa fa-star" alt="2" for="dungle_ambience"></i>
+            <i class="fa fa-star" alt="3" for="dungle_ambience"></i>
+            <i class="fa fa-star" alt="4" for="dungle_ambience"></i>
+            <i class="fa fa-star" alt="5" for="dungle_ambience"></i>
+          </h4>
+        </div>
+      </div>
     </div>
-  </div>
+    <!-- closing col around the field -->
 
-  <div class="field">
-    <%= form.label :scent %>
-    <%= form.hidden_field :scent, id: :dungle_scent %>
-    <div class="rating" id="scentRating">
-      <h4>
-        <i class="fa fa-star" alt="1" for="dungle_scent"></i>
-        <i class="fa fa-star" alt="2" for="dungle_scent"></i>
-        <i class="fa fa-star" alt="3" for="dungle_scent"></i>
-        <i class="fa fa-star" alt="4" for="dungle_scent"></i>
-        <i class="fa fa-star" alt="5" for="dungle_scent"></i>
-      </h4>
+    <div class="col-12 col-sm-6">
+      <div class="field">
+        <%= form.label :scent %>
+        <p class="text-muted">How'd it smell in there?</p>
+        <%= form.number_field :scent, id: :dungle_scent %>
+        <div class="rating" id="scentRating">
+          <h4>
+            <i class="fa fa-star" alt="1" for="dungle_scent"></i>
+            <i class="fa fa-star" alt="2" for="dungle_scent"></i>
+            <i class="fa fa-star" alt="3" for="dungle_scent"></i>
+            <i class="fa fa-star" alt="4" for="dungle_scent"></i>
+            <i class="fa fa-star" alt="5" for="dungle_scent"></i>
+          </h4>
+        </div>
+      </div>
     </div>
+    <!-- closing col around the field -->
   </div>
+  <!-- closing row around 2 fields -->
 
-  <div class="field">
-    <%= form.label :cleanliness %>
-    <%= form.hidden_field :cleanliness, id: :dungle_cleanliness %>
-    <div class="rating" id="cleanlinessRating">
-      <h4>
-        <i class="fa fa-star" alt="1" for="dungle_cleanliness"></i>
-        <i class="fa fa-star" alt="2" for="dungle_cleanliness"></i>
-        <i class="fa fa-star" alt="3" for="dungle_cleanliness"></i>
-        <i class="fa fa-star" alt="4" for="dungle_cleanliness"></i>
-        <i class="fa fa-star" alt="5" for="dungle_cleanliness"></i>
-      </h4>
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <div class="field">
+        <%= form.label :cleanliness %>
+        <p class="text-muted">How well-maintained were the facilities?</p>
+        <%= form.number_field :cleanliness, id: :dungle_cleanliness %>
+        <div class="rating" id="cleanlinessRating">
+          <h4>
+            <i class="fa fa-star" alt="1" for="dungle_cleanliness"></i>
+            <i class="fa fa-star" alt="2" for="dungle_cleanliness"></i>
+            <i class="fa fa-star" alt="3" for="dungle_cleanliness"></i>
+            <i class="fa fa-star" alt="4" for="dungle_cleanliness"></i>
+            <i class="fa fa-star" alt="5" for="dungle_cleanliness"></i>
+          </h4>
+        </div>
+      </div>
     </div>
-  </div>
+    <!-- closing col around field -->
 
-  <div class="field">
-    <%= form.label :traffic %>
-    <%= form.hidden_field :traffic, id: :dungle_traffic %>
-    <div class="rating" id="trafficRating">
-      <h4>
-        <i class="fa fa-star" alt="1" for="dungle_traffic"></i>
-        <i class="fa fa-star" alt="2" for="dungle_traffic"></i>
-        <i class="fa fa-star" alt="3" for="dungle_traffic"></i>
-        <i class="fa fa-star" alt="4" for="dungle_traffic"></i>
-        <i class="fa fa-star" alt="5" for="dungle_traffic"></i>
-      </h4>
+    <div class="col-12 col-sm-6">
+      <div class="field">
+        <%= form.label :traffic %>
+        <p class="text-muted">Could you easily and peacefully access the stall?</p>
+        <%= form.number_field :traffic, id: :dungle_traffic %>
+        <div class="rating" id="trafficRating">
+          <h4>
+            <i class="fa fa-star" alt="1" for="dungle_traffic"></i>
+            <i class="fa fa-star" alt="2" for="dungle_traffic"></i>
+            <i class="fa fa-star" alt="3" for="dungle_traffic"></i>
+            <i class="fa fa-star" alt="4" for="dungle_traffic"></i>
+            <i class="fa fa-star" alt="5" for="dungle_traffic"></i>
+          </h4>
+        </div>
+      </div>
     </div>
+    <!-- closing col around field -->
   </div>
+  <!-- closing row around 2 fields -->
 
   <div class="field">
     <%= form.label :performance %>
-    <%= form.hidden_field :performance, id: :dungle_performance, value: "0" %>
+    <p class="text-muted">All in all, did the toilet, paper, and amenities get the job done?</p>
+    <%= form.number_field :performance, id: :dungle_performance, value: "0" %>
     <div class="rating" id="performanceRating">
       <h4>
         <i class="fa fa-star" alt="1" for="dungle_performance"></i>
@@ -92,7 +120,9 @@
   <div class="space"></div>
 <% end %>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/3.0.21/autosize.min.js"></script>
 <script type="text/javascript">
+  // Apply styling and state to ratings in the form
   $('.rating .fa').click(function() {
     var id = '#' + $(this).attr('for');
     var $input = $(id);
@@ -102,4 +132,6 @@
     $(this).prevAll().addClass('selected');
     $(this).nextAll().removeClass('selected');
   });
+
+  autosize($('textarea'));
 </script>

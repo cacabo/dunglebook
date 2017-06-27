@@ -30,8 +30,8 @@ class DunglesController < ApplicationController
 
     respond_to do |format|
       if @dungle.save
-        format.html { redirect_to @dungle, notice: 'Dungle was successfully created.' }
-        format.json { render :show, status: :created, location: @dungle }
+        format.html { redirect_to user_dungle_path(id: @dungle.id), notice: 'Dungle was successfully created.' }
+        format.json { render :show, status: :created, location: user_dungle_path(id: @dungle.id) }
       else
         format.html { render :new }
         format.json { render json: @dungle.errors, status: :unprocessable_entity }
@@ -44,8 +44,8 @@ class DunglesController < ApplicationController
   def update
     respond_to do |format|
       if @dungle.update(dungle_params)
-        format.html { redirect_to @dungle, notice: 'Dungle was successfully updated.' }
-        format.json { render :show, status: :ok, location: @dungle }
+        format.html { redirect_to user_dungle_path(id: @dungle.id), notice: 'Dungle was successfully updated.' }
+        format.json { render :show, status: :ok, location: user_dungle_path(id: @dungle.id) }
       else
         format.html { render :edit }
         format.json { render json: @dungle.errors, status: :unprocessable_entity }
@@ -58,7 +58,7 @@ class DunglesController < ApplicationController
   def destroy
     @dungle.destroy
     respond_to do |format|
-      format.html { redirect_to dungles_url, notice: 'Dungle was successfully destroyed.' }
+      format.html { redirect_to @user, notice: 'Dungle was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -81,6 +81,6 @@ class DunglesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dungle_params
-      params.require(:dungle).permit(:user_id, :description, :performance, :ambience, :scent, :cleanliness, :traffic)
+      params.require(:dungle).permit(:user_id, :title, :description, :performance, :ambience, :scent, :cleanliness, :traffic)
     end
 end

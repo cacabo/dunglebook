@@ -2,10 +2,10 @@
 
 <h1>Dungles</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>User</th>
+      <th>Title</th>
       <th>Description</th>
       <th>Performance</th>
       <th>Ambience</th>
@@ -19,16 +19,16 @@
   <tbody>
     <% @dungles.each do |dungle| %>
       <tr>
-        <td><%= dungle.user %></td>
+        <td><%= dungle.title %></td>
         <td><%= dungle.description %></td>
         <td><%= dungle.performance %></td>
         <td><%= dungle.ambience %></td>
         <td><%= dungle.scent %></td>
         <td><%= dungle.cleanliness %></td>
         <td><%= dungle.traffic %></td>
-        <td><%= link_to 'Show', dungle %></td>
-        <td><%= link_to 'Edit', edit_dungle_path(dungle) %></td>
-        <td><%= link_to 'Destroy', dungle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_dungle_path(id: dungle.id) %></td>
+        <td><%= link_to 'Edit', edit_user_dungle_path(id: dungle.id) %></td>
+        <td><%= link_to 'Destroy', user_dungle_path(id: dungle.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Dungle', new_dungle_path %>
+<%= link_to 'New Dungle', new_user_dungle_path %>

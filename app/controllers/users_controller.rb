@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @dungles = @user.dungles.order('created_at DESC')
   end
 
   # GET /users/new
