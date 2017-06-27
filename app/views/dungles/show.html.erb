@@ -44,12 +44,39 @@
                 <%= @dungle.traffic %>
             </p>
 
+            <div class="map">
+              <% if @dungle.location.present? %>
+                <div id="map"></div>
+              <% else %>
+                <a href='#'>Add dungle location.</a>
+              <% end %>
+            </div>
+
             <% if current_user and current_user === @dungle.user %>
             <%= link_to 'Edit', edit_user_dungle_path(id: @dungle.id) %><br>
             <%= link_to 'Delete Dungle', user_dungle_path(id: @dungle.id), method: :delete %><br>
             <% end %>
             <%= link_to 'Back to home', root_path %>
 
+            </div>
         </div>
     </div>
-</div>
+
+    <% if @dungle.location.present? %>
+    <script>
+        function initMap() {
+            var position = {
+                lat: -25.363,
+                lng: 131.044
+            };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: position
+            });
+            var marker = new google.maps.Marker({position: position, map: map});
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKA-2kym8TeAHSh6lNFnyA4SG1AuJ46G8&callback=initMap"></script>
+    <% end %>
+
+    <!-- Maps API Key: AIzaSyDKA-2kym8TeAHSh6lNFnyA4SG1AuJ46G8 -->
