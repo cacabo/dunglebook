@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.2'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
 
 group :development do
   gem 'sqlite3'
