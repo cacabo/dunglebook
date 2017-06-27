@@ -3,13 +3,11 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3 pad-20-0">
-            <p>
-                <strong>Name:</strong>
+            <h4>
                 <%= @user.name %>
-            </p>
+            </h4>
 
-            <p>
-                <strong>Bio:</strong>
+            <p class="bigger">
                 <%= @user.bio %>
             </p>
 
@@ -22,41 +20,33 @@
                 <% if @user.name.present? %>
                   <p><%= @user.name %> does not have any dungles yet.</p>
                 <% else %>
-                  <p>This dungler does not have any dungles yet.</p>
+                  <p class="text-muted">This dungler does not have any dungles yet.</p>
                 <% end %>
               <% else %>
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Title</th>
-                      <th>Description</th>
-                      <th>Performance</th>
-                      <th>Ambience</th>
-                      <th>Scent</th>
-                      <th>Cleanliness</th>
-                      <th>Traffic</th>
-                      <th colspan="3"></th>
-                    </tr>
-                  </thead>
 
-                  <tbody>
-                    <% @dungles.each do |dungle| %>
-                      <tr>
-                        <td><%= dungle.title %></td>
-                        <td><%= dungle.description %></td>
-                        <td><%= dungle.performance %></td>
-                        <td><%= dungle.ambience %></td>
-                        <td><%= dungle.scent %></td>
-                        <td><%= dungle.cleanliness %></td>
-                        <td><%= dungle.traffic %></td>
-                        <td><%= link_to 'Show', user_dungle_path(user_id: @user.id, id: dungle.id) %></td>
-                        <td><%= link_to 'Edit', edit_user_dungle_path(user_id: @user.id, id: dungle.id) %></td>
-                        <td><%= link_to 'Destroy', user_dungle_path(user_id: @user.id, id: dungle.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                      </tr>
-                    <% end %>
-                  </tbody>
-                </table>
+                <% @dungles.each do |dungle| %>
+                  <div class="dungle">
+                    <h4>
+                      <%= link_to user_dungle_path(user_id: @user.id, id: dungle.id) do %>
+                        <%= dungle.title %>
+                      <% end %>
+                    </h4>
+                    <p class="bigger">
+                      <%= dungle.description[0..100] %>
+                      <%= '...' unless dungle.description.length <= 100 %>
+                    </p>
+                    <p>
+                      Performance: <%= dungle.performance %><br>
+                      Ambience: <%= dungle.ambience %><br>
+                      Scent: <%= dungle.scent %><br>
+                      Cleanliness: <%= dungle.cleanliness %><br>
+                      Traffic: <%= dungle.traffic %>
+                    </p>
+                  </div>
+                <% end %>
+                <!-- close loop over dungles -->
               <% end %>
+              <!-- close logic checking if there are any dungles -->
             </div>
 
             <% if current_user === @user %>
