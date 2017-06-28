@@ -3,13 +3,30 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3 pad-20-10">
-
+            <!-- Edit options -->
             <% if current_user === @dungle.user %>
-              <i class="fa fa-ellipsis-v fa-lg right-absolute pad-10 cursor" aria-hidden="true"></i>
+              <div class="btn-group right-absolute">
+                <button type="button" class="btn btn-blank cursor pad-10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-ellipsis-v fa-lg before" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <%= link_to edit_user_dungle_path(id: @dungle.id), class: 'dropdown-item' do %>
+                    <i class="fa fa-fw fa-pencil" aria-hidden="true"></i> Edit Dungle
+                  <% end %>
+                  <a href="" class="dropdown-item" data-toggle="modal" data-target="#modal">
+                    <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Edit Location
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to user_dungle_path(id: @dungle.id), method: :delete, class: 'dropdown-item' do %>
+                    <i class="fa fa-fw fa-times" aria-hidden="true"></i> Delete Dungle
+                  <% end %>
+                </div>
+              </div>
             <% end %>
+
             <h2><%= @dungle.title %></h2>
             <%= link_to @dungle.user do %>
-              <h6><%= @dungle.user.name %></h6>
+              <h6 class="inline"><%= @dungle.user.name %></h6>
             <% end %>
 
             <div class="divider"></div>
@@ -93,20 +110,9 @@
             </table>
 
             <div class="half-space"></div>
-            <button class="btn blush-text white shade" data-toggle="modal" data-target="#modal">
-              Toggle Modal
-            </button>
-            <div class="half-space"></div>
 
             <% if @dungle.longitude and @dungle.latitude %>
               <div id="map"></div>
-            <% end %>
-
-            <div class="half-space"></div>
-
-            <% if current_user and current_user === @dungle.user %>
-            <%= link_to 'Edit Dungle', edit_user_dungle_path(id: @dungle.id) %><br>
-            <%= link_to 'Delete Dungle', user_dungle_path(id: @dungle.id), method: :delete %><br>
             <% end %>
 
             <div class="half-space"></div>
@@ -125,14 +131,41 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">
-              This is the modal title
+              Edit Dungle Location
             </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button no-outline" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            This is the modal body
+            <%= form_for([@user, @dungle], remote: true) do |form| %>
+              <% if @dungle.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@dungle.errors.count, "error") %> prohibited this dungle from being saved:</h2>
+
+                  <ul>
+                  <% @dungle.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+              <div class="field">
+                <%= form.label :location_title, 'Location' %>
+                <%= form.text_field :location_title, id: :dungle_location_title, class: 'form-control' %>
+              </div>
+
+              <div class="field">
+                <%= form.label :address %>
+                <%= form.text_field :address, id: :dungle_address, class: 'form-control' %>
+              </div>
+
+              <div class="half-space"></div>
+              <div class="actions center">
+                <%= form.submit 'Update Location', class: 'btn shade green' %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
