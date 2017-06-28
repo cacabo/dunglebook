@@ -54,23 +54,15 @@
                 <%= @dungle.address %>
             </p>
 
-            <p>
-                <strong>Longitude:</strong>
-                <%= @dungle.longitude %>
-            </p>
-
-            <p>
-                <strong>Latitude:</strong>
-                <%= @dungle.latitude %>
-            </p>
-
             <div class="half-space"></div>
             <button class="btn blush-text white shade" data-toggle="modal" data-target="#modal">
               Toggle Modal
             </button>
             <div class="half-space"></div>
 
-            <div id="map"></div>
+            <% if @dungle.longitude and @dungle.latitude %>
+              <div id="map"></div>
+            <% end %>
 
             <div class="half-space"></div>
 
@@ -102,17 +94,19 @@
       </div>
     </div>
 
-    <script>
-        function initMap() {
-            var position = {
-                lat: -25.363,
-                lng: 131.044
-            };
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: position
-            });
-            var marker = new google.maps.Marker({position: position, map: map});
-        }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKA-2kym8TeAHSh6lNFnyA4SG1AuJ46G8&callback=initMap"></script>
+    <% if @dungle.longitude and @dungle.latitude %>
+      <script>
+          function initMap() {
+              var position = {
+                  lat: <%= @dungle.latitude %>,
+                  lng: <%= @dungle.longitude %>
+              };
+              var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 15,
+                  center: position
+              });
+              var marker = new google.maps.Marker({position: position, map: map});
+          }
+      </script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKA-2kym8TeAHSh6lNFnyA4SG1AuJ46G8&callback=initMap"></script>
+    <% end %>
