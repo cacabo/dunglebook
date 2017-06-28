@@ -1,6 +1,10 @@
 class Dungle < ApplicationRecord
   belongs_to :user
 
+  # geocode the location / address to longitude and latitude
+  geocoded_by :address
+  after_validation :geocode
+
   validates :user_id, presence: true
   validates :performance, presence: true
   validates :ambience, presence: true
