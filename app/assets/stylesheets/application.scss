@@ -22,13 +22,34 @@ a:hover {
 a:visited {
     color: #014c8c;
 }
+
+.cursor {
+    cursor: hand;
+    cursor: pointer;
+}
+
+p {
+  font-size: 100%;
+}
+
+.right-absolute {
+  position: absolute;
+  right: 0;
+  color: rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
 // padding and spacing
+
 .marg-right-5 {
-  margin-right: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .marg-left-5 {
-  margin-left: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 .pad-5 {
@@ -103,6 +124,7 @@ a:visited {
     margin: 1rem 0;
 }
 // Ratings
+
 .rating {
     font-size: 120%;
 
@@ -125,6 +147,24 @@ a:visited {
         }
     }
 }
+
+td.stars {
+    .fa-star {
+        color: rgba(0, 0, 0, 0.15);
+
+        &:hover {
+            color: rgba(0, 0, 0, 0.3);
+        }
+
+        &.selected {
+            color: gold;
+
+            &:hover {
+                color: goldenrod;
+            }
+        }
+    }
+}
 // Colors and fonts
 $blush: #FF7085;
 $dark-blush: #dd6173;
@@ -134,8 +174,8 @@ $purple: #7795f8;
 $dark-purple: #6b86e0;
 
 .bigger {
-  font-size: 120%;
-  line-height: 120%;
+    font-size: 110%;
+    line-height: 110%;
 }
 
 .btn {
@@ -144,25 +184,55 @@ $dark-purple: #6b86e0;
     cursor: pointer;
 
     .fa {
-      -webkit-transition: all 0.2s ease;
-      transition: all 0.2s ease;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
     }
 
     &:hover .fa {
-      transform: translateX(4px);
+        transform: translateX(4px);
+
+        &.before {
+            transform: translateX(0px);
+        }
     }
 }
 
 .blush-text {
     color: $blush;
+
+    &.btn {
+        -webkit-tranisiton: all 0.2s ease;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: $dark-blush;
+        }
+    }
 }
 
-.btn.blush-text {
-    -webkit-tranisiton: all 0.2s ease;
-    transition: all 0.2s ease;
+.green-text {
+    color: $green;
 
-    &:hover {
-        color: $dark-blush;
+    &.btn {
+        -webkit-tranisiton: all 0.2s ease;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: $dark-green;
+        }
+    }
+}
+
+.purple-text {
+    color: $purple;
+
+    &.btn {
+        -webkit-tranisiton: all 0.2s ease;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: $dark-purple;
+        }
     }
 }
 
@@ -179,7 +249,7 @@ $dark-purple: #6b86e0;
     color: white;
 
     &:hover {
-      background: $dark-green;
+        background: $dark-green;
     }
 }
 
@@ -188,7 +258,7 @@ $dark-purple: #6b86e0;
     color: white;
 
     &:hover {
-      background: $dark-purple;
+        background: $dark-purple;
     }
 }
 
@@ -197,7 +267,7 @@ $dark-purple: #6b86e0;
     color: white;
 
     &:hover {
-      background: $dark-blush;
+        background: $dark-blush;
     }
 }
 
@@ -208,37 +278,37 @@ $dark-purple: #6b86e0;
         box-shadow: 0 0.05rem 0.5rem rgba(0, 0, 0, 0.2);
     }
 }
-
 // Notifications
 #notice,
 .flash {
-  position: relative;
-  width: 100%;
-  padding: 0.5rem 1rem;
-  color: white;
-  font-weight: bold;
-  display: none;
+    position: relative;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    color: white;
+    font-weight: bold;
+    display: none;
 
-  .fa.right {
-    float: right;
-    text-align: right;
-    cursor: hand;
-    cursor: pointer;
-  }
+    .fa.right {
+        float: right;
+        text-align: right;
+        cursor: hand;
+        cursor: pointer;
+    }
 }
 
-#notice, #flash-notice, #flash-info {
-  background: $green;
+#flash-info,
+#flash-notice,
+#notice {
+    background: $green;
 }
 
 #flash-error {
-  background: $purple;
+    background: $purple;
 }
 
 #flash-alert {
-  background: $blush;
+    background: $blush;
 }
-
 // Maps
 #map {
     height: 400px;

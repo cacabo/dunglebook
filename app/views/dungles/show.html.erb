@@ -4,55 +4,93 @@
     <div class="row">
         <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3 pad-20-10">
 
-            <p>
-                <strong>User:</strong>
-                <%= @dungle.user.name %>
-            </p>
+            <% if current_user === @dungle.user %>
+              <i class="fa fa-ellipsis-v fa-lg right-absolute pad-10 cursor" aria-hidden="true"></i>
+            <% end %>
+            <h2><%= @dungle.title %></h2>
+            <%= link_to @dungle.user do %>
+              <h6><%= @dungle.user.name %></h6>
+            <% end %>
 
-            <p>
-                <strong>Title</strong>
-                <%= @dungle.title %>
-            </p>
+            <div class="divider"></div>
 
-            <p>
-                <strong>Description:</strong>
+            <ul class="fa-ul">
+              <li>
+                <i class="fa-li fa fa-lg fa-map-marker"></i>
+                <%= @dungle.location_title %><br>
+                <span class="text-muted"><%= @dungle.address %></span>
+              </li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <p class="bigger">
                 <%= @dungle.description %>
             </p>
 
-            <p>
-                <strong>Performance:</strong>
-                <%= @dungle.performance %>
-            </p>
+            <table class="table">
+              <tbody>
+                <!-- performance -->
+                <tr>
+                  <td>Performance</td>
+                  <td class="stars">
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.performance >= 1 %>" alt="1"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.performance >= 2 %>" alt="2"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.performance >= 3 %>" alt="3"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.performance >= 4 %>" alt="4"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.performance == 5 %>" alt="5"></i>
+                  </td>
+                </tr>
 
-            <p>
-                <strong>Ambience:</strong>
-                <%= @dungle.ambience %>
-            </p>
+                <!-- ambience -->
+                <tr>
+                  <td>Ambience</td>
+                  <td class="stars">
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.ambience >= 1 %>" alt="1"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.ambience >= 2 %>" alt="2"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.ambience >= 3 %>" alt="3"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.ambience >= 4 %>" alt="4"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.ambience == 5 %>" alt="5"></i>
+                  </td>
+                </tr>
 
-            <p>
-                <strong>Scent:</strong>
-                <%= @dungle.scent %>
-            </p>
+                <!-- scent -->
+                <tr>
+                  <td>Scent</td>
+                  <td class="stars">
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.scent >= 1 %>" alt="1"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.scent >= 2 %>" alt="2"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.scent >= 3 %>" alt="3"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.scent >= 4 %>" alt="4"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.scent == 5 %>" alt="5"></i>
+                  </td>
+                </tr>
 
-            <p>
-                <strong>Cleanliness:</strong>
-                <%= @dungle.cleanliness %>
-            </p>
+                <!-- cleanliness -->
+                <tr>
+                  <td>Cleanliness</td>
+                  <td class="stars">
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.cleanliness >= 1 %>" alt="1"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.cleanliness >= 2 %>" alt="2"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.cleanliness >= 3 %>" alt="3"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.cleanliness >= 4 %>" alt="4"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.cleanliness == 5 %>" alt="5"></i>
+                  </td>
+                </tr>
 
-            <p>
-                <strong>Traffic:</strong>
-                <%= @dungle.traffic %>
-            </p>
-
-            <p>
-                <strong>Location:</strong>
-                <%= @dungle.location_title %>
-            </p>
-
-            <p>
-                <strong>Address:</strong>
-                <%= @dungle.address %>
-            </p>
+                <!-- traffic -->
+                <tr>
+                  <td>Traffic</td>
+                  <td class="stars">
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.traffic >= 1 %>" alt="1"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.traffic >= 2 %>" alt="2"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.traffic >= 3 %>" alt="3"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.traffic >= 4 %>" alt="4"></i>
+                    <i class="fa fa-lg fa-star <%= 'selected' if @dungle.traffic == 5 %>" alt="5"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
             <div class="half-space"></div>
             <button class="btn blush-text white shade" data-toggle="modal" data-target="#modal">
@@ -70,8 +108,14 @@
             <%= link_to 'Edit Dungle', edit_user_dungle_path(id: @dungle.id) %><br>
             <%= link_to 'Delete Dungle', user_dungle_path(id: @dungle.id), method: :delete %><br>
             <% end %>
-            <%= link_to 'Back to home', root_path %>
 
+            <div class="half-space"></div>
+
+            <%= link_to root_path do %>
+              <button class="btn shade purple-text white">
+                <i class="fa fa-arrow-left before" aria-hidden="true"></i> Back to home
+              </button>
+            <% end %>
             </div>
         </div>
     </div>
