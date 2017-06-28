@@ -31,8 +31,8 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
-        $notice = $('#notice');
-        if ($notice.text().length > 0) {
+        let $notice = $('#notice');
+        if ($.trim($notice.text()).length > 0) {
           $notice.slideDown(200);
         }
 
@@ -40,8 +40,8 @@
           $notice.slideUp(200);
         });
 
-        $flash = $('.flash');
-        if ($flash.text().length > 0) {
+        let $flash = $('.flash');
+        if ($.trim($flash.text()).length > 0) {
           $flash.slideDown(200);
         }
 

@@ -81,6 +81,6 @@ class DunglesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dungle_params
-      params.require(:dungle).permit(:user_id, :title, :description, :performance, :ambience, :scent, :cleanliness, :traffic, :location_title, :address, :longitude, :latitude)
+      params.require(:dungle).permit(:user_id, :title, :description, :performance, :ambience, :scent, :cleanliness, :traffic, :location_title, :longitude, :latitude)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628000030) do
+ActiveRecord::Schema.define(version: 20170628232841) do
 
   create_table "dungles", force: :cascade do |t|
     t.integer "user_id"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20170628000030) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "location_title"
-    t.string "address"
     t.float "longitude"
     t.float "latitude"
     t.index ["user_id"], name: "index_dungles_on_user_id"
