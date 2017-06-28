@@ -125,6 +125,17 @@
       </h4>
     </div>
   </div>
+  <!-- end of ratings -->
+  <div class="field">
+    <%= form.label :location_title, 'Location' %>
+    <%= form.text_field :location_title, id: :dungle_location_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :dungle_address %>
+  </div>
+
   <div class="half-space"></div>
   <div class="actions">
     <%= form.submit 'Post Dungle', class: 'btn shade white blush-text' %>
