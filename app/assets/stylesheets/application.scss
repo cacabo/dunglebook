@@ -192,6 +192,15 @@ $dark-purple: #6b86e0;
     }
 }
 
+.btn.blush {
+    background: $blush;
+    color: white;
+
+    &:hover {
+      background: $dark-blush;
+    }
+}
+
 .btn.shade {
     box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
 
