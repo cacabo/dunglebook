@@ -23,6 +23,13 @@ a:visited {
     color: #014c8c;
 }
 // padding and spacing
+.marg-right-5 {
+  margin-right: 0.5rem;
+}
+
+.marg-left-5 {
+  margin-left: 0.5rem;
+}
 
 .pad-5 {
     padding: 0.5rem;
@@ -122,15 +129,28 @@ a:visited {
 $blush: #FF7085;
 $dark-blush: #dd6173;
 $green: #3ecf8e;
+$dark-green: #38bc81;
+$purple: #7795f8;
+$dark-purple: #6b86e0;
 
 .bigger {
   font-size: 120%;
+  line-height: 120%;
 }
 
 .btn {
     font-weight: bold;
     cursor: hand;
     cursor: pointer;
+
+    .fa {
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+
+    &:hover .fa {
+      transform: translateX(4px);
+    }
 }
 
 .blush-text {
@@ -148,6 +168,28 @@ $green: #3ecf8e;
 
 .white {
     background: white;
+}
+
+.green {
+    background: $green;
+}
+
+.btn.green {
+    background: $green;
+    color: white;
+
+    &:hover {
+      background: $dark-green;
+    }
+}
+
+.btn.purple {
+    background: $purple;
+    color: white;
+
+    &:hover {
+      background: $dark-purple;
+    }
 }
 
 .btn.shade {

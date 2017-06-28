@@ -7,20 +7,37 @@
     <div class="divider"></div>
 
     <% if current_user and current_user.name.present? %>
-      <p>Hi <%= current_user.name %>! Hope you're having a nice day and an even nicer poop!</p>
+      <p class="bigger">Hi <%= current_user.name %>! Hope you're having a nice day and an even nicer poop!</p>
     <% elsif current_user %>
-      <p>Hi there! Go to <%= link_to 'your profile', current_user %> to add more information.</p>
+      <p class="bigger">Hi there! Go to <%= link_to 'your profile', current_user %> to add more information.</p>
     <% else %>
-      <p>Hi there and welcome! Sign up and get started.</p>
+      <p class="bigger">Hi there and welcome! Login so you can get started and join our glorious, honorable mission.</p>
     <% end %>
 
-    <%= link_to 'View all users', users_path %><br>
+    <div class="half-space"></div>
+
     <% if !current_user %>
-      <%= link_to 'Sign up', new_user_registration_path %>
-      <%= link_to 'Sign in', new_user_session_path %>
+      <%= link_to new_user_registration_path do %>
+        <button class="btn shade purple marg-right-5">
+          Sign up <i class="fa fa-plus" aria-hidden="true"></i>
+        </button><% end %>
+
+      <%= link_to new_user_session_path do %>
+        <button class="btn shade green">
+          Sign in <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      <% end %>
     <% else %>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+      <%= link_to users_path do %>
+        <button class="btn shade green">
+          View all users <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      <% end %>
     <% end %>
+    <!-- close logged in logic -->
+
+    <div class="half-space"></div>
+    
     </div>
     <!-- closing col -->
   </div>
