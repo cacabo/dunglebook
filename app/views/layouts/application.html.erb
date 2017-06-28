@@ -20,7 +20,11 @@
   <body>
     <%= render 'layouts/navbar' %>
     <%- flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+      <% if msg.is_a?(String) %>
+        <div class="flash" id="flash-<%=name%>">
+          <%= msg %> <i class="fa fa-times fa-lg right" aria-hidden="true"></i>
+        </div>
+      <% end %>
     <%- end -%>
     <%= yield %>
     <%= render 'layouts/footer' %>
@@ -34,6 +38,15 @@
 
         $notice.find('.fa.fa-times').click(function() {
           $notice.slideUp(200);
+        });
+
+        $flash = $('.flash');
+        if ($flash.text().length > 0) {
+          $flash.slideDown(200);
+        }
+
+        $flash.find('.fa.fa-times').click(function() {
+          $flash.slideUp(200);
         });
       });
 

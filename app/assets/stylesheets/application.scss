@@ -210,11 +210,11 @@ $dark-purple: #6b86e0;
 }
 
 // Notifications
-#notice {
+#notice,
+.flash {
   position: relative;
   width: 100%;
   padding: 0.5rem 1rem;
-  background: $green;
   color: white;
   font-weight: bold;
   display: none;
@@ -225,6 +225,18 @@ $dark-purple: #6b86e0;
     cursor: hand;
     cursor: pointer;
   }
+}
+
+#notice, #flash-notice, #flash-info {
+  background: $green;
+}
+
+#flash-error {
+  background: $purple;
+}
+
+#flash-alert {
+  background: $blush;
 }
 
 // Maps
