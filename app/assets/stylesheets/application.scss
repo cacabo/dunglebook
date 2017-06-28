@@ -60,6 +60,14 @@ a:visited {
     padding: 2rem 0;
 }
 
+.pad-20-5 {
+    padding: 2rem 0.5rem;
+}
+
+.pad-20-10 {
+    padding: 2rem 1rem;
+}
+
 .empty-space,
 .half-space,
 .space {
@@ -113,6 +121,7 @@ a:visited {
 // Colors and fonts
 $blush: #FF7085;
 $dark-blush: #dd6173;
+$green: #3ecf8e;
 
 .bigger {
   font-size: 120%;
@@ -147,6 +156,24 @@ $dark-blush: #dd6173;
     &:hover {
         box-shadow: 0 0.05rem 0.5rem rgba(0, 0, 0, 0.2);
     }
+}
+
+// Notifications
+#notice {
+  position: relative;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: $green;
+  color: white;
+  font-weight: bold;
+  display: none;
+
+  .fa.right {
+    float: right;
+    text-align: right;
+    cursor: hand;
+    cursor: pointer;
+  }
 }
 
 // Maps

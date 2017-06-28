@@ -20,5 +20,18 @@
     <%= render 'layouts/navbar' %>
     <%= yield %>
     <%= render 'layouts/footer' %>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $notice = $('#notice');
+        if ($notice.text().length > 0) {
+          $notice.slideDown(200);
+        }
+
+        $notice.find('.fa.fa-times').click(function() {
+          $notice.slideUp(200);
+        });
+      })
+    </script>
   </body>
 </html>
