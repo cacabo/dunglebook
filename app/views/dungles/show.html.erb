@@ -44,10 +44,38 @@
                 <%= @dungle.traffic %>
             </p>
 
+            <p>
+                <strong>Location:</strong>
+                <%= @dungle.location_title %>
+            </p>
+
+            <p>
+                <strong>Address:</strong>
+                <%= @dungle.address %>
+            </p>
+
+            <p>
+                <strong>Longitude:</strong>
+                <%= @dungle.longitude %>
+            </p>
+
+            <p>
+                <strong>Latitude:</strong>
+                <%= @dungle.latitude %>
+            </p>
+
+            <div class="half-space"></div>
+            <button class="btn blush-text white shade" data-toggle="modal" data-target="#modal">
+              Toggle Modal
+            </button>
+            <div class="half-space"></div>
+
             <div id="map"></div>
 
+            <div class="half-space"></div>
+
             <% if current_user and current_user === @dungle.user %>
-            <%= link_to 'Edit', edit_user_dungle_path(id: @dungle.id) %><br>
+            <%= link_to 'Edit Dungle', edit_user_dungle_path(id: @dungle.id) %><br>
             <%= link_to 'Delete Dungle', user_dungle_path(id: @dungle.id), method: :delete %><br>
             <% end %>
             <%= link_to 'Back to home', root_path %>
