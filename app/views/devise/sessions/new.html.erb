@@ -25,7 +25,9 @@
             <% end -%>
 
             <div class="actions">
-                <%= f.submit "Sign in", class: 'btn shade blush' %>
+                <%= button_tag(class: 'btn shade blush') do %>
+                  Sign in <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                <% end %>
             </div>
             <% end %>
 

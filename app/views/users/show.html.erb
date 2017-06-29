@@ -50,7 +50,8 @@
             </div>
 
             <% if current_user === @user %>
-              <%= link_to 'Edit', edit_user_path %><br>
+              <%= link_to 'Edit details', edit_user_path %><br>
+              <%= link_to 'Edit account', edit_user_registration_path %><br>
               <%= link_to 'Delete Account', user_path, data: { confirm: "Permanently delete your account?" }, method: :delete %><br>
             <% end %>
             <%= link_to 'Back to all users', users_path %><br>
