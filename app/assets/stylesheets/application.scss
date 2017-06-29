@@ -15,8 +15,10 @@
  */
 @import "bootstrap"; // links
 
-a:hover {
-    background: transparent;
+
+.min-height {
+    min-height: calc(100vh - 200px);
+    display: block;
 }
 
 a:visited {

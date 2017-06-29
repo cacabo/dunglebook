@@ -17,8 +17,13 @@
   </div>
 
   <div class="field">
+    <%= form.label :location_title, 'Location' %>
+    <%= form.text_field :location_title, id: :dungle_location_title, class: 'form-control', required: 'true' %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :dungle_description, class: 'form-control', required: 'true'  %>
+    <%= form.text_area :description, id: :dungle_description, class: 'form-control', required: 'true' %>
   </div>
 
   <div class="row">
@@ -114,10 +119,6 @@
     </div>
   </div>
   <!-- end of ratings -->
-  <div class="field">
-    <%= form.label :location_title, 'Location' %>
-    <%= form.text_field :location_title, id: :dungle_location_title, class: 'form-control' %>
-  </div>
 
   <div class="half-space"></div>
   <div class="actions">
@@ -139,7 +140,9 @@
 </script>
 
 <!-- google maps places api for location searching -->
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDKA-2kym8TeAHSh6lNFnyA4SG1AuJ46G8&callback=initMap"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKA-2kym8TeAHSh6lNFnyA4SG1AuJ46G8&libraries=places"></script>
+
+<!-- initializing autocomplete behavior -->
 <script type="text/javascript">
     var input = document.getElementById('dungle_location_title');
     var autocomplete = new google.maps.places.Autocomplete(input);
