@@ -147,11 +147,16 @@ button.no-outline,
 }
 
 .empty-space,
+.quarter-space,
 .half-space,
 .space {
     display: block;
     width: 100%;
     height: 0;
+}
+
+.quarter-space {
+    height: 1rem;
 }
 
 .half-space {
@@ -328,7 +333,7 @@ $dark-purple: #6b86e0;
         box-shadow: 0 0.05rem 0.5rem rgba(0, 0, 0, 0.2);
     }
 }
-// Notifications
+// Notifications and errors
 #notice,
 .flash {
     position: relative;
@@ -359,6 +364,32 @@ $dark-purple: #6b86e0;
 #flash-alert {
     background: $blush;
 }
+
+#error_explanation {
+    width: 100%;
+    background: transparent;
+    border: 1px solid blush;
+
+    h2 {
+      background: $blush;
+      color: white;
+    }
+}
+
+.field-with-errors {
+  width: 100%;
+  background: transparent;
+
+  input {
+    border: 1px solid $blush;
+  }
+
+  label {
+    color: $blush;
+    font-weight: bold;
+  }
+}
+
 // Maps
 #map {
     height: 400px;
