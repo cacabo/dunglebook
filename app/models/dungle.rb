@@ -6,13 +6,17 @@ class Dungle < ApplicationRecord
   after_validation :geocode
 
   validates :user_id, presence: true
+  validates :title, presence: true
   validates :performance, presence: true
   validates :ambience, presence: true
   validates :scent, presence: true
   validates :cleanliness, presence: true
   validates :traffic, presence: true
   validates :location_title, presence: true
+  
+  validates :title, { maximum: 160 }
   validates :description, { maximum: 10000 }
+  validates :location_title, { maximum: 1000 }
 
   validates_inclusion_of :performance, :in => 1..5
   validates_inclusion_of :ambience, :in => 1..5
