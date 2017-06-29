@@ -8,5 +8,5 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :name, length: { in: 2..50 }
-  validates :bio, lenght: { maximum: 500 }
+  validates :bio, length: { maximum: 500 }
 end

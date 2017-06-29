@@ -13,10 +13,10 @@ class Dungle < ApplicationRecord
   validates :cleanliness, presence: true
   validates :traffic, presence: true
   validates :location_title, presence: true
-  
-  validates :title, { maximum: 160 }
-  validates :description, { maximum: 10000 }
-  validates :location_title, { maximum: 1000 }
+
+  validates :title, length: { maximum: 160 }
+  validates :description, length: { maximum: 10000 }
+  validates :location_title, length: { maximum: 1000 }
 
   validates_inclusion_of :performance, :in => 1..5
   validates_inclusion_of :ambience, :in => 1..5

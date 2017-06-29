@@ -29,11 +29,11 @@
         <%= form.hidden_field :ambience, id: :dungle_ambience %>
         <div class="rating" id="ambienceRating">
           <h4>
-            <i class="fa fa-star <%= 'selected' if @dungle.ambience >= 1 %>" alt="1" for="dungle_ambience"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.ambience >= 2 %>" alt="2" for="dungle_ambience"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.ambience >= 3 %>" alt="3" for="dungle_ambience"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.ambience >= 4 %>" alt="4" for="dungle_ambience"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.ambience == 5 %>" alt="5" for="dungle_ambience"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.ambience and @dungle.ambience >= 1 %>" alt="1" for="dungle_ambience"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.ambience and @dungle.ambience >= 2 %>" alt="2" for="dungle_ambience"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.ambience and @dungle.ambience >= 3 %>" alt="3" for="dungle_ambience"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.ambience and @dungle.ambience >= 4 %>" alt="4" for="dungle_ambience"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.ambience and @dungle.ambience == 5 %>" alt="5" for="dungle_ambience"></i>
           </h4>
         </div>
       </div>
@@ -47,11 +47,11 @@
         <%= form.hidden_field :scent, id: :dungle_scent %>
         <div class="rating" id="scentRating">
           <h4>
-            <i class="fa fa-star <%= 'selected' if @dungle.scent >= 1 %>" alt="1" for="dungle_scent"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.scent >= 2 %>" alt="2" for="dungle_scent"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.scent >= 3 %>" alt="3" for="dungle_scent"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.scent >= 4 %>" alt="4" for="dungle_scent"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.scent == 5 %>" alt="5" for="dungle_scent"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.scent and @dungle.scent >= 1 %>" alt="1" for="dungle_scent"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.scent and @dungle.scent >= 2 %>" alt="2" for="dungle_scent"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.scent and @dungle.scent >= 3 %>" alt="3" for="dungle_scent"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.scent and @dungle.scent >= 4 %>" alt="4" for="dungle_scent"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.scent and @dungle.scent == 5 %>" alt="5" for="dungle_scent"></i>
           </h4>
         </div>
       </div>
@@ -68,11 +68,11 @@
         <%= form.hidden_field :cleanliness, id: :dungle_cleanliness %>
         <div class="rating" id="cleanlinessRating">
           <h4>
-            <i class="fa fa-star <%= 'selected' if @dungle.cleanliness >= 1 %>" alt="1" for="dungle_cleanliness"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.cleanliness >= 2 %>" alt="2" for="dungle_cleanliness"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.cleanliness >= 3 %>" alt="3" for="dungle_cleanliness"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.cleanliness >= 4 %>" alt="4" for="dungle_cleanliness"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.cleanliness == 5 %>" alt="5" for="dungle_cleanliness"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.cleanliness and @dungle.cleanliness >= 1 %>" alt="1" for="dungle_cleanliness"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.cleanliness and @dungle.cleanliness >= 2 %>" alt="2" for="dungle_cleanliness"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.cleanliness and @dungle.cleanliness >= 3 %>" alt="3" for="dungle_cleanliness"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.cleanliness and @dungle.cleanliness >= 4 %>" alt="4" for="dungle_cleanliness"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.cleanliness and @dungle.cleanliness == 5 %>" alt="5" for="dungle_cleanliness"></i>
           </h4>
         </div>
       </div>
@@ -86,11 +86,11 @@
         <%= form.hidden_field :traffic, id: :dungle_traffic %>
         <div class="rating" id="trafficRating">
           <h4>
-            <i class="fa fa-star <%= 'selected' if @dungle.traffic >= 1 %>" alt="1" for="dungle_traffic"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.traffic >= 2 %>" alt="2" for="dungle_traffic"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.traffic >= 3 %>" alt="3" for="dungle_traffic"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.traffic >= 4 %>" alt="4" for="dungle_traffic"></i>
-            <i class="fa fa-star <%= 'selected' if @dungle.traffic == 5 %>" alt="5" for="dungle_traffic"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.traffic and @dungle.traffic >= 1 %>" alt="1" for="dungle_traffic"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.traffic and @dungle.traffic >= 2 %>" alt="2" for="dungle_traffic"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.traffic and @dungle.traffic >= 3 %>" alt="3" for="dungle_traffic"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.traffic and @dungle.traffic >= 4 %>" alt="4" for="dungle_traffic"></i>
+            <i class="fa fa-star <%= 'selected' if @dungle.traffic and @dungle.traffic == 5 %>" alt="5" for="dungle_traffic"></i>
           </h4>
         </div>
       </div>
@@ -105,11 +105,11 @@
     <%= form.hidden_field :performance, id: :dungle_performance %>
     <div class="rating" id="performanceRating">
       <h4>
-        <i class="fa fa-star <%= 'selected' if @dungle.performance >= 1 %>" alt="1" for="dungle_performance"></i>
-        <i class="fa fa-star <%= 'selected' if @dungle.performance >= 2 %>" alt="2" for="dungle_performance"></i>
-        <i class="fa fa-star <%= 'selected' if @dungle.performance >= 3 %>" alt="3" for="dungle_performance"></i>
-        <i class="fa fa-star <%= 'selected' if @dungle.performance >= 4 %>" alt="4" for="dungle_performance"></i>
-        <i class="fa fa-star <%= 'selected' if @dungle.performance == 5 %>" alt="5" for="dungle_performance"></i>
+        <i class="fa fa-star <%= 'selected' if @dungle.performance and @dungle.performance >= 1 %>" alt="1" for="dungle_performance"></i>
+        <i class="fa fa-star <%= 'selected' if @dungle.performance and @dungle.performance >= 2 %>" alt="2" for="dungle_performance"></i>
+        <i class="fa fa-star <%= 'selected' if @dungle.performance and @dungle.performance >= 3 %>" alt="3" for="dungle_performance"></i>
+        <i class="fa fa-star <%= 'selected' if @dungle.performance and @dungle.performance >= 4 %>" alt="4" for="dungle_performance"></i>
+        <i class="fa fa-star <%= 'selected' if @dungle.performance and @dungle.performance == 5 %>" alt="5" for="dungle_performance"></i>
       </h4>
     </div>
   </div>
