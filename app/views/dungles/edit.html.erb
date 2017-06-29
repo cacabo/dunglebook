@@ -1,16 +1,15 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3 pad-20-10">
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3 pad-20-10">
 
-<h2>Editing Dungle</h2>
-<div class="divider"></div>
+            <h2>Editing Dungle</h2>
+            <div class="divider"></div>
 
-<%= render 'form', dungle: @dungle %>
+            <%= render 'form', dungle: @dungle %>
 
-<%= link_to 'Show', user_dungle_path(id: @dungle.id) %><br>
-<%= link_to 'Back to home', root_path %>
+            <%= link_to 'Back to dungle', user_dungle_path(id: @dungle.id) %><br>
+            <%= link_to 'Back to home', root_path %>
 
-
-</div>
-</div>
+        </div>
+    </div>
 </div>
