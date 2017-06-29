@@ -364,3 +364,14 @@ $dark-purple: #6b86e0;
     height: 400px;
     width: 100%;
 }
+
+//Dungles
+.dungle {
+    border: 1px solid rgba(0, 0, 0, 0.075);
+    border-radius: 0.25rem;
+    margin: 2rem 0;
+
+    .dungle-body {
+        padding: 1rem;
+    }
+}

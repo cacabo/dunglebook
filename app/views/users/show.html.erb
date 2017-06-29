@@ -3,6 +3,31 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3 pad-20-10">
+            <% if current_user === @user %>
+            <div class="btn-group right-absolute">
+                <button type="button" class="btn btn-blank cursor pad-10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-ellipsis-v fa-lg before" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <%= link_to edit_user_path, class: 'dropdown-item' do %>
+                      <i class="fa fa-fw fa-pencil" aria-hidden="true"></i> Edit details
+                    <% end %>
+
+                    <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
+                      <i class="fa fa-fw fa-pencil-square-o" aria-hidden="true"></i> Edit account
+                    <% end %>
+
+                    <div class="dropdown-divider"></div>
+
+                    <%= link_to user_path, data: { confirm: "Permanently delete your account?" }, method: :delete, class: 'dropdown-item' do %>
+                      <i class="fa fa-fw fa-times" aria-hidden="true"></i> Delete account
+                    <% end %>
+                </div>
+            </div>
+            <% end %>
+            <!-- end of dropdown -->
+
+            <!-- user details -->
             <h4>
                 <%= @user.name %>
             </h4>
@@ -15,6 +40,7 @@
               <strong>Dungles: </strong><%= @dungles.size %>
             </p>
 
+            <!-- listing all user dungles -->
             <div class="dungles">
               <% if @dungles.size === 0 %>
                 <% if @user.name.present? %>
@@ -26,22 +52,91 @@
 
                 <% @dungles.each do |dungle| %>
                   <div class="dungle">
+                    <div class="dungle-body">
                     <h4>
                       <%= link_to user_dungle_path(user_id: @user.id, id: dungle.id) do %>
                         <%= dungle.title %>
                       <% end %>
                     </h4>
+                    <% if dungle.location_title.present? %>
+                      <ul class="fa-ul">
+                          <li>
+                              <i class="fa-li fa fa-lg fa-map-marker"></i>
+                              <%= dungle.location_title %>
+                          </li>
+                      </ul>
+                    <% end %>
+
                     <p class="bigger">
                       <%= dungle.description[0..100] %>
                       <%= '...' unless dungle.description.length <= 100 %>
                     </p>
-                    <p>
-                      Performance: <%= dungle.performance %><br>
-                      Ambience: <%= dungle.ambience %><br>
-                      Scent: <%= dungle.scent %><br>
-                      Cleanliness: <%= dungle.cleanliness %><br>
-                      Traffic: <%= dungle.traffic %>
-                    </p>
+
+                    <table class="table">
+                        <tbody>
+                            <!-- performance -->
+                            <tr>
+                                <td>Performance</td>
+                                <td class="stars">
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.performance >= 1 %>" alt="1"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.performance >= 2 %>" alt="2"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.performance >= 3 %>" alt="3"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.performance >= 4 %>" alt="4"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.performance == 5 %>" alt="5"></i>
+                                </td>
+                            </tr>
+
+                            <!-- ambience -->
+                            <tr>
+                                <td>Ambience</td>
+                                <td class="stars">
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.ambience >= 1 %>" alt="1"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.ambience >= 2 %>" alt="2"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.ambience >= 3 %>" alt="3"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.ambience >= 4 %>" alt="4"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.ambience == 5 %>" alt="5"></i>
+                                </td>
+                            </tr>
+
+                            <!-- scent -->
+                            <tr>
+                                <td>Scent</td>
+                                <td class="stars">
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.scent >= 1 %>" alt="1"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.scent >= 2 %>" alt="2"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.scent >= 3 %>" alt="3"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.scent >= 4 %>" alt="4"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.scent == 5 %>" alt="5"></i>
+                                </td>
+                            </tr>
+
+                            <!-- cleanliness -->
+                            <tr>
+                                <td>Cleanliness</td>
+                                <td class="stars">
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.cleanliness >= 1 %>" alt="1"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.cleanliness >= 2 %>" alt="2"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.cleanliness >= 3 %>" alt="3"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.cleanliness >= 4 %>" alt="4"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.cleanliness == 5 %>" alt="5"></i>
+                                </td>
+                            </tr>
+
+                            <!-- traffic -->
+                            <tr>
+                                <td>Traffic</td>
+                                <td class="stars">
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.traffic >= 1 %>" alt="1"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.traffic >= 2 %>" alt="2"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.traffic >= 3 %>" alt="3"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.traffic >= 4 %>" alt="4"></i>
+                                    <i class="fa fa-lg fa-star <%= 'selected' if dungle.traffic == 5 %>" alt="5"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    </div>
                   </div>
                 <% end %>
                 <!-- close loop over dungles -->
@@ -49,11 +144,6 @@
               <!-- close logic checking if there are any dungles -->
             </div>
 
-            <% if current_user === @user %>
-              <%= link_to 'Edit details', edit_user_path %><br>
-              <%= link_to 'Edit account', edit_user_registration_path %><br>
-              <%= link_to 'Delete Account', user_path, data: { confirm: "Permanently delete your account?" }, method: :delete %><br>
-            <% end %>
             <%= link_to 'Back to all users', users_path %><br>
             <%= link_to 'Back to home', root_path %>
         </div>
