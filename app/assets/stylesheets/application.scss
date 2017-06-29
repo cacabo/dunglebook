@@ -367,18 +367,22 @@ $dark-purple: #6b86e0;
 
 #error_explanation {
     width: 100%;
-    background: transparent;
+    background: $blush;
     border: 2px solid $blush;
     border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    color: white;
 
     ul {
-      margin-top: 1rem;
-      list-style-type: circle;
+      margin-top: 0.5rem;
+      color: white;
     }
 
     h2 {
-      background: $blush;
       color: white;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-weight: bold;
     }
 }
 
@@ -398,6 +402,10 @@ $dark-purple: #6b86e0;
     color: $blush;
     font-weight: bold;
   }
+}
+
+label {
+  margin-top: 1rem;
 }
 
 // Maps
