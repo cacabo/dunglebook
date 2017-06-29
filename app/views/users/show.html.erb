@@ -142,8 +142,9 @@
               <!-- close logic checking if there are any dungles -->
             </div>
 
-            <%= link_to 'Back to all users', users_path %><br>
-            <%= link_to 'Back to home', root_path %>
+            <%= link_to root_path, class: 'btn shade purple-text white' do %>
+              <i class="fa fa-arrow-left before" aria-hidden="true"></i> Back to home
+            <% end %>
         </div>
     </div>
 </div>

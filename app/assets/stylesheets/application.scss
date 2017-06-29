@@ -255,40 +255,40 @@ $dark-purple: #6b86e0;
 }
 
 .blush-text {
-    color: $blush;
+    color: $blush !important;
 
     &.btn {
         -webkit-tranisiton: all 0.2s ease;
         transition: all 0.2s ease;
 
         &:hover {
-            color: $dark-blush;
+            color: $dark-blush !important;
         }
     }
 }
 
 .green-text {
-    color: $green;
+    color: $green !important;
 
     &.btn {
         -webkit-tranisiton: all 0.2s ease;
         transition: all 0.2s ease;
 
         &:hover {
-            color: $dark-green;
+            color: $dark-green !important;
         }
     }
 }
 
 .purple-text {
-    color: $purple;
+    color: $purple !important;
 
     &.btn {
         -webkit-tranisiton: all 0.2s ease;
         transition: all 0.2s ease;
 
         &:hover {
-            color: $dark-purple;
+            color: $dark-purple !important;
         }
     }
 }
