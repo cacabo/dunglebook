@@ -12,6 +12,7 @@ class Dungle < ApplicationRecord
   validates :cleanliness, presence: true
   validates :traffic, presence: true
   validates :location_title, presence: true
+  validates :description, { maximum: 10000 }
 
   validates_inclusion_of :performance, :in => 1..5
   validates_inclusion_of :ambience, :in => 1..5

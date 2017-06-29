@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   # user has many dungles
   has_many :dungles, dependent: :destroy
+
+  validates :name, presence: true
+  validates :name, length: { in: 2..50 }
+  validates :bio, lenght: { maximum: 500 }
 end
