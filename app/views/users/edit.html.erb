@@ -1,6 +1,14 @@
-<h1>Editing User</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 pad-20-10">
+            <h2>Editing User</h2>
 
-<%= render 'form', user: @user %>
+            <div class="divider"></div>
 
-<%= link_to 'Back to user', @user %> |
-<%= link_to 'Back to all users', users_path %>
+            <%= render 'form', user: @user %>
+
+            <%= link_to 'Back to user', @user %><br>
+            <%= link_to 'Back to all users', users_path %>
+        </div>
+    </div>
+</div>
