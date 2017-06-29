@@ -382,6 +382,10 @@ $dark-purple: #6b86e0;
     }
 }
 
+.field_with_errors + br {
+  display: none;
+}
+
 .field_with_errors {
   width: 100%;
   background: transparent;
