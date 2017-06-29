@@ -368,7 +368,13 @@ $dark-purple: #6b86e0;
 #error_explanation {
     width: 100%;
     background: transparent;
-    border: 1px solid blush;
+    border: 2px solid $blush;
+    border-radius: 0.5rem;
+
+    ul {
+      margin-top: 1rem;
+      list-style-type: circle;
+    }
 
     h2 {
       background: $blush;
@@ -376,7 +382,7 @@ $dark-purple: #6b86e0;
     }
 }
 
-.field-with-errors {
+.field_with_errors {
   width: 100%;
   background: transparent;
 
