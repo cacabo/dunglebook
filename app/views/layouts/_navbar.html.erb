@@ -5,14 +5,14 @@
     </button>
 
     <!-- branding -->
-    <a class="navbar-brand" href="#">&#x1F4A9; Dunglebook</a>
+    <%= link_to 'Dunglebook', root_path, class: 'navbar-brand' %>
 
     <!-- navigation links -->
     <div class="collapse navbar-collapse" id="nav">
         <!-- left justified links -->
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
+                <%= link_to 'Home', root_path, class: 'nav-link' %>
             </li>
             <li class="nav-item">
                 <%= link_to 'All Users', users_path, class: 'nav-link' %>
