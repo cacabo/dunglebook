@@ -1,24 +1,17 @@
-# README
+# Dunglebook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Making a better bathroom. We give a :poop:.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Stack used
+* Rails 5.1
+* Ruby 2.3
+* Bootstrap 4
+* SCSS
+* JavaScript
+* jQuery
+* HTML / ERB
+* Devise gem
+* Geocoder gem
+* Google Maps API
+* Google Places API
+* PostgreSQL
